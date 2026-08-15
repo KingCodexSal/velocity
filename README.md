@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# ⚡ Velocity
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern desktop media downloader built with React, TypeScript, and Electron.
 
-Currently, two official plugins are available:
+Velocity provides a clean interface for downloading online media while giving users control over format, quality, download location, and download management.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- 🎬 Video and audio downloads
+- 🎚️ Quality and format selection
+- 📥 Download queue management
+- 📊 Real-time download progress
+- ⏸️ Pause and resume downloads
+- ❌ Cancel active downloads
+- 📜 Download history
+- 🔤 Subtitle support
+- 📁 Custom download locations
+- 🔎 Media information preview
+- 🌙 Dark mode
+- 🖥️ Native desktop experience
+- ⚙️ FFmpeg-powered media processing
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🖥️ Screenshots
 
-## Expanding the ESLint configuration
+> Screenshots coming soon.
+<img width="1919" height="1006" alt="image" src="https://github.com/user-attachments/assets/068b3def-d237-491a-8438-b88fb16641b5" />
+<img width="1919" height="1004" alt="image" src="https://github.com/user-attachments/assets/4dde7c56-cdd5-4554-9a21-ba8246df3142" />
+<img width="1919" height="1004" alt="image" src="https://github.com/user-attachments/assets/2ea6b5c6-6789-4120-98b6-2045f76fd2fe" />
+<img width="1918" height="997" alt="image" src="https://github.com/user-attachments/assets/842f1f47-221a-436e-a71b-431a95688d49" />
+<img width="1919" height="992" alt="image" src="https://github.com/user-attachments/assets/6c53510d-d88d-4f24-9f33-7acc735c47e2" />
+<img width="1918" height="999" alt="image" src="https://github.com/user-attachments/assets/476d4c96-a241-4855-b9cf-03d917034662" />
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **React** — UI development
+- **TypeScript** — Type safety
+- **Electron** — Desktop application framework
+- **Zustand** — State management
+- **Tailwind CSS** — Styling
+- **Framer Motion** — UI animations
+- **Electron Builder** — Application packaging
+- **FFmpeg** — Media processing
+- **yt-dlp** — Media downloading
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🏗️ Architecture
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Velocity uses Electron's main and renderer processes to separate the desktop functionality from the user interface.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The React renderer communicates with Electron through a preload/IPC layer, allowing the application to perform desktop operations without exposing Node.js directly to the renderer.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Main technologies
+
+```text
+React
+   │
+   ▼
+Renderer Process
+   │
+   │ IPC
+   ▼
+Preload Layer
+   │
+   ▼
+Electron Main Process
+   │
+   ├── yt-dlp
+   ├── FFmpeg
+   └── File System
