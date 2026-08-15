@@ -22,7 +22,7 @@ Velocity provides a clean interface for downloading online media while giving us
 
 ## 🖥️ Screenshots
 
-> Screenshots coming soon.
+>
 <img width="1919" height="1006" alt="image" src="https://github.com/user-attachments/assets/068b3def-d237-491a-8438-b88fb16641b5" />
 <img width="1919" height="1004" alt="image" src="https://github.com/user-attachments/assets/4dde7c56-cdd5-4554-9a21-ba8246df3142" />
 <img width="1919" height="1004" alt="image" src="https://github.com/user-attachments/assets/2ea6b5c6-6789-4120-98b6-2045f76fd2fe" />
